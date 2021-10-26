@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="bd_cloud_vehicle_dev@172.29.1.100" uuid="2d787c92-4deb-4371-b459-161788d93a7b">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://172.29.1.100:5000/bd_cloud_vehicle_dev</jdbc-url>
+    </data-source>
+  </component>
+</project>
