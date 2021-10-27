@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 @RequestMapping("helloController")
 public class HelloController {
 
+
     @Autowired
     private Person person;
     @Autowired
@@ -26,6 +27,10 @@ public class HelloController {
 
     private Logger logger = LoggerFactory.getLogger(HelloController.class);
 
+    /**
+     * 测试
+     * @return
+     */
     @GetMapping("/hello")
     public String hello(){
         boolean b = ioc.containsBean("personService");
