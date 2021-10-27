@@ -1,0 +1,8 @@
+study\HelloWorld.class
+study\model\Person.class
+study\service\PersonService.class
+META-INF\spring-configuration-metadata.json
+study\model\Dog.class
+study\service\impl\PersonServiceImpl.class
+study\controller\HelloController.class
+study\config\MyAppConfig.class
