@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="study.dao.InfTerminalMapper" >
+  <resultMap id="BaseResultMap" type="study.model.InfTerminal" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="imei" property="imei" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="cert_no" property="certNo" jdbcType="VARCHAR" />
+    <result column="tag_no" property="tagNo" jdbcType="VARCHAR" />
+    <result column="org_id" property="orgId" jdbcType="VARCHAR" />
+    <result column="installer_username" property="installerUsername" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="create_username" property="createUsername" jdbcType="VARCHAR" />
+    <result column="update_username" property="updateUsername" jdbcType="VARCHAR" />
+    <result column="ter_model" property="terModel" jdbcType="VARCHAR" />
+    <result column="protocol_model" property="protocolModel" jdbcType="VARCHAR" />
+    <result column="device_model_id" property="deviceModelId" jdbcType="VARCHAR" />
+    <result column="equipment_model" property="equipmentModel" jdbcType="VARCHAR" />
+    <result column="manufacturer" property="manufacturer" jdbcType="VARCHAR" />
+    <result column="installer_date" property="installerDate" jdbcType="TIMESTAMP" />
+    <result column="eff_date" property="effDate" jdbcType="TIMESTAMP" />
+    <result column="exp_date" property="expDate" jdbcType="TIMESTAMP" />
+    <result column="voltage" property="voltage" jdbcType="VARCHAR" />
+    <result column="te_name" property="teName" jdbcType="VARCHAR" />
+    <result column="addr" property="addr" jdbcType="VARCHAR" />
+    <result column="mac_address" property="macAddress" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="head_image" property="headImage" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="online_status" property="onlineStatus" jdbcType="INTEGER" />
+    <result column="efence_id" property="efenceId" jdbcType="CHAR" />
+    <result column="group_id" property="groupId" jdbcType="CHAR" />
+    <result column="efence_group_id" property="efenceGroupId" jdbcType="CHAR" />
+    <result column="gga_level" property="ggaLevel" jdbcType="VARCHAR" />
+    <result column="card_iccid" property="cardIccid" jdbcType="VARCHAR" />
+    <result column="card_no" property="cardNo" jdbcType="VARCHAR" />
+    <result column="card_net_type" property="cardNetType" jdbcType="VARCHAR" />
+    <result column="card_set_meal" property="cardSetMeal" jdbcType="VARCHAR" />
+    <result column="software_version" property="softwareVersion" jdbcType="VARCHAR" />
+    <result column="firmware_version" property="firmwareVersion" jdbcType="VARCHAR" />
+    <result column="ntrip_addr" property="ntripAddr" jdbcType="VARCHAR" />
+    <result column="ntrip_port" property="ntripPort" jdbcType="INTEGER" />
+    <result column="ntrip_user" property="ntripUser" jdbcType="VARCHAR" />
+    <result column="ntrip_password" property="ntripPassword" jdbcType="VARCHAR" />
+    <result column="ntrip_mountpoint" property="ntripMountpoint" jdbcType="VARCHAR" />
+    <result column="ntrip_type" property="ntripType" jdbcType="VARCHAR" />
+    <result column="ntrip_expire_date" property="ntripExpireDate" jdbcType="TIMESTAMP" />
+    <result column="jt808_addr" property="jt808Addr" jdbcType="VARCHAR" />
+    <result column="jt808_port" property="jt808Port" jdbcType="INTEGER" />
+    <result column="create_user_id" property="createUserId" jdbcType="VARCHAR" />
+    <result column="update_user_id" property="updateUserId" jdbcType="VARCHAR" />
+    <result column="version_id" property="versionId" jdbcType="VARCHAR" />
+    <result column="install_status" property="installStatus" jdbcType="INTEGER" />
+    <result column="calc_mileage" property="calcMileage" jdbcType="BIT" />
+    <result column="relay_message" property="relayMessage" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, imei, name, tel, cert_no, tag_no, org_id, installer_username, status, create_date, 
+    update_date, create_username, update_username, ter_model, protocol_model, device_model_id, 
+    equipment_model, manufacturer, installer_date, eff_date, exp_date, voltage, te_name, 
+    addr, mac_address, password, head_image, remark, online_status, efence_id, group_id, 
+    efence_group_id, gga_level, card_iccid, card_no, card_net_type, card_set_meal, software_version, 
+    firmware_version, ntrip_addr, ntrip_port, ntrip_user, ntrip_password, ntrip_mountpoint, 
+    ntrip_type, ntrip_expire_date, jt808_addr, jt808_port, create_user_id, update_user_id, 
+    version_id, install_status, calc_mileage, relay_message
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from inf_terminal
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from inf_terminal
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="study.model.InfTerminal" >
+    insert into inf_terminal (id, imei, name, 
+      tel, cert_no, tag_no, 
+      org_id, installer_username, status, 
+      create_date, update_date, create_username, 
+      update_username, ter_model, protocol_model, 
+      device_model_id, equipment_model, manufacturer, 
+      installer_date, eff_date, exp_date, 
+      voltage, te_name, addr, 
+      mac_address, password, head_image, 
+      remark, online_status, efence_id, 
+      group_id, efence_group_id, gga_level, 
+      card_iccid, card_no, card_net_type, 
+      card_set_meal, software_version, firmware_version, 
+      ntrip_addr, ntrip_port, ntrip_user, 
+      ntrip_password, ntrip_mountpoint, ntrip_type, 
+      ntrip_expire_date, jt808_addr, jt808_port, 
+      create_user_id, update_user_id, version_id, 
+      install_status, calc_mileage, relay_message
+      )
+    values (#{id,jdbcType=VARCHAR}, #{imei,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{certNo,jdbcType=VARCHAR}, #{tagNo,jdbcType=VARCHAR}, 
+      #{orgId,jdbcType=VARCHAR}, #{installerUsername,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{createUsername,jdbcType=VARCHAR}, 
+      #{updateUsername,jdbcType=VARCHAR}, #{terModel,jdbcType=VARCHAR}, #{protocolModel,jdbcType=VARCHAR}, 
+      #{deviceModelId,jdbcType=VARCHAR}, #{equipmentModel,jdbcType=VARCHAR}, #{manufacturer,jdbcType=VARCHAR}, 
+      #{installerDate,jdbcType=TIMESTAMP}, #{effDate,jdbcType=TIMESTAMP}, #{expDate,jdbcType=TIMESTAMP}, 
+      #{voltage,jdbcType=VARCHAR}, #{teName,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{macAddress,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{headImage,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{onlineStatus,jdbcType=INTEGER}, #{efenceId,jdbcType=CHAR}, 
+      #{groupId,jdbcType=CHAR}, #{efenceGroupId,jdbcType=CHAR}, #{ggaLevel,jdbcType=VARCHAR}, 
+      #{cardIccid,jdbcType=VARCHAR}, #{cardNo,jdbcType=VARCHAR}, #{cardNetType,jdbcType=VARCHAR}, 
+      #{cardSetMeal,jdbcType=VARCHAR}, #{softwareVersion,jdbcType=VARCHAR}, #{firmwareVersion,jdbcType=VARCHAR}, 
+      #{ntripAddr,jdbcType=VARCHAR}, #{ntripPort,jdbcType=INTEGER}, #{ntripUser,jdbcType=VARCHAR}, 
+      #{ntripPassword,jdbcType=VARCHAR}, #{ntripMountpoint,jdbcType=VARCHAR}, #{ntripType,jdbcType=VARCHAR}, 
+      #{ntripExpireDate,jdbcType=TIMESTAMP}, #{jt808Addr,jdbcType=VARCHAR}, #{jt808Port,jdbcType=INTEGER}, 
+      #{createUserId,jdbcType=VARCHAR}, #{updateUserId,jdbcType=VARCHAR}, #{versionId,jdbcType=VARCHAR}, 
+      #{installStatus,jdbcType=INTEGER}, #{calcMileage,jdbcType=BIT}, #{relayMessage,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="study.model.InfTerminal" >
+    insert into inf_terminal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="imei != null" >
+        imei,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="certNo != null" >
+        cert_no,
+      </if>
+      <if test="tagNo != null" >
+        tag_no,
+      </if>
+      <if test="orgId != null" >
+        org_id,
+      </if>
+      <if test="installerUsername != null" >
+        installer_username,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="createUsername != null" >
+        create_username,
+      </if>
+      <if test="updateUsername != null" >
+        update_username,
+      </if>
+      <if test="terModel != null" >
+        ter_model,
+      </if>
+      <if test="protocolModel != null" >
+        protocol_model,
+      </if>
+      <if test="deviceModelId != null" >
+        device_model_id,
+      </if>
+      <if test="equipmentModel != null" >
+        equipment_model,
+      </if>
+      <if test="manufacturer != null" >
+        manufacturer,
+      </if>
+      <if test="installerDate != null" >
+        installer_date,
+      </if>
+      <if test="effDate != null" >
+        eff_date,
+      </if>
+      <if test="expDate != null" >
+        exp_date,
+      </if>
+      <if test="voltage != null" >
+        voltage,
+      </if>
+      <if test="teName != null" >
+        te_name,
+      </if>
+      <if test="addr != null" >
+        addr,
+      </if>
+      <if test="macAddress != null" >
+        mac_address,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="headImage != null" >
+        head_image,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="onlineStatus != null" >
+        online_status,
+      </if>
+      <if test="efenceId != null" >
+        efence_id,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="efenceGroupId != null" >
+        efence_group_id,
+      </if>
+      <if test="ggaLevel != null" >
+        gga_level,
+      </if>
+      <if test="cardIccid != null" >
+        card_iccid,
+      </if>
+      <if test="cardNo != null" >
+        card_no,
+      </if>
+      <if test="cardNetType != null" >
+        card_net_type,
+      </if>
+      <if test="cardSetMeal != null" >
+        card_set_meal,
+      </if>
+      <if test="softwareVersion != null" >
+        software_version,
+      </if>
+      <if test="firmwareVersion != null" >
+        firmware_version,
+      </if>
+      <if test="ntripAddr != null" >
+        ntrip_addr,
+      </if>
+      <if test="ntripPort != null" >
+        ntrip_port,
+      </if>
+      <if test="ntripUser != null" >
+        ntrip_user,
+      </if>
+      <if test="ntripPassword != null" >
+        ntrip_password,
+      </if>
+      <if test="ntripMountpoint != null" >
+        ntrip_mountpoint,
+      </if>
+      <if test="ntripType != null" >
+        ntrip_type,
+      </if>
+      <if test="ntripExpireDate != null" >
+        ntrip_expire_date,
+      </if>
+      <if test="jt808Addr != null" >
+        jt808_addr,
+      </if>
+      <if test="jt808Port != null" >
+        jt808_port,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="versionId != null" >
+        version_id,
+      </if>
+      <if test="installStatus != null" >
+        install_status,
+      </if>
+      <if test="calcMileage != null" >
+        calc_mileage,
+      </if>
+      <if test="relayMessage != null" >
+        relay_message,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null" >
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null" >
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tagNo != null" >
+        #{tagNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="installerUsername != null" >
+        #{installerUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUsername != null" >
+        #{createUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUsername != null" >
+        #{updateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="terModel != null" >
+        #{terModel,jdbcType=VARCHAR},
+      </if>
+      <if test="protocolModel != null" >
+        #{protocolModel,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceModelId != null" >
+        #{deviceModelId,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentModel != null" >
+        #{equipmentModel,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null" >
+        #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="installerDate != null" >
+        #{installerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effDate != null" >
+        #{effDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expDate != null" >
+        #{expDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="voltage != null" >
+        #{voltage,jdbcType=VARCHAR},
+      </if>
+      <if test="teName != null" >
+        #{teName,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null" >
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="macAddress != null" >
+        #{macAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="headImage != null" >
+        #{headImage,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineStatus != null" >
+        #{onlineStatus,jdbcType=INTEGER},
+      </if>
+      <if test="efenceId != null" >
+        #{efenceId,jdbcType=CHAR},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=CHAR},
+      </if>
+      <if test="efenceGroupId != null" >
+        #{efenceGroupId,jdbcType=CHAR},
+      </if>
+      <if test="ggaLevel != null" >
+        #{ggaLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="cardIccid != null" >
+        #{cardIccid,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNetType != null" >
+        #{cardNetType,jdbcType=VARCHAR},
+      </if>
+      <if test="cardSetMeal != null" >
+        #{cardSetMeal,jdbcType=VARCHAR},
+      </if>
+      <if test="softwareVersion != null" >
+        #{softwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="firmwareVersion != null" >
+        #{firmwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripAddr != null" >
+        #{ntripAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripPort != null" >
+        #{ntripPort,jdbcType=INTEGER},
+      </if>
+      <if test="ntripUser != null" >
+        #{ntripUser,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripPassword != null" >
+        #{ntripPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripMountpoint != null" >
+        #{ntripMountpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripType != null" >
+        #{ntripType,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripExpireDate != null" >
+        #{ntripExpireDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jt808Addr != null" >
+        #{jt808Addr,jdbcType=VARCHAR},
+      </if>
+      <if test="jt808Port != null" >
+        #{jt808Port,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="versionId != null" >
+        #{versionId,jdbcType=VARCHAR},
+      </if>
+      <if test="installStatus != null" >
+        #{installStatus,jdbcType=INTEGER},
+      </if>
+      <if test="calcMileage != null" >
+        #{calcMileage,jdbcType=BIT},
+      </if>
+      <if test="relayMessage != null" >
+        #{relayMessage,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="study.model.InfTerminal" >
+    update inf_terminal
+    <set >
+      <if test="imei != null" >
+        imei = #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null" >
+        cert_no = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tagNo != null" >
+        tag_no = #{tagNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        org_id = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="installerUsername != null" >
+        installer_username = #{installerUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUsername != null" >
+        create_username = #{createUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUsername != null" >
+        update_username = #{updateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="terModel != null" >
+        ter_model = #{terModel,jdbcType=VARCHAR},
+      </if>
+      <if test="protocolModel != null" >
+        protocol_model = #{protocolModel,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceModelId != null" >
+        device_model_id = #{deviceModelId,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentModel != null" >
+        equipment_model = #{equipmentModel,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null" >
+        manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="installerDate != null" >
+        installer_date = #{installerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effDate != null" >
+        eff_date = #{effDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expDate != null" >
+        exp_date = #{expDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="voltage != null" >
+        voltage = #{voltage,jdbcType=VARCHAR},
+      </if>
+      <if test="teName != null" >
+        te_name = #{teName,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null" >
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="macAddress != null" >
+        mac_address = #{macAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="headImage != null" >
+        head_image = #{headImage,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineStatus != null" >
+        online_status = #{onlineStatus,jdbcType=INTEGER},
+      </if>
+      <if test="efenceId != null" >
+        efence_id = #{efenceId,jdbcType=CHAR},
+      </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=CHAR},
+      </if>
+      <if test="efenceGroupId != null" >
+        efence_group_id = #{efenceGroupId,jdbcType=CHAR},
+      </if>
+      <if test="ggaLevel != null" >
+        gga_level = #{ggaLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="cardIccid != null" >
+        card_iccid = #{cardIccid,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null" >
+        card_no = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNetType != null" >
+        card_net_type = #{cardNetType,jdbcType=VARCHAR},
+      </if>
+      <if test="cardSetMeal != null" >
+        card_set_meal = #{cardSetMeal,jdbcType=VARCHAR},
+      </if>
+      <if test="softwareVersion != null" >
+        software_version = #{softwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="firmwareVersion != null" >
+        firmware_version = #{firmwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripAddr != null" >
+        ntrip_addr = #{ntripAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripPort != null" >
+        ntrip_port = #{ntripPort,jdbcType=INTEGER},
+      </if>
+      <if test="ntripUser != null" >
+        ntrip_user = #{ntripUser,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripPassword != null" >
+        ntrip_password = #{ntripPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripMountpoint != null" >
+        ntrip_mountpoint = #{ntripMountpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripType != null" >
+        ntrip_type = #{ntripType,jdbcType=VARCHAR},
+      </if>
+      <if test="ntripExpireDate != null" >
+        ntrip_expire_date = #{ntripExpireDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jt808Addr != null" >
+        jt808_addr = #{jt808Addr,jdbcType=VARCHAR},
+      </if>
+      <if test="jt808Port != null" >
+        jt808_port = #{jt808Port,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="versionId != null" >
+        version_id = #{versionId,jdbcType=VARCHAR},
+      </if>
+      <if test="installStatus != null" >
+        install_status = #{installStatus,jdbcType=INTEGER},
+      </if>
+      <if test="calcMileage != null" >
+        calc_mileage = #{calcMileage,jdbcType=BIT},
+      </if>
+      <if test="relayMessage != null" >
+        relay_message = #{relayMessage,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="study.model.InfTerminal" >
+    update inf_terminal
+    set imei = #{imei,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      cert_no = #{certNo,jdbcType=VARCHAR},
+      tag_no = #{tagNo,jdbcType=VARCHAR},
+      org_id = #{orgId,jdbcType=VARCHAR},
+      installer_username = #{installerUsername,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      create_username = #{createUsername,jdbcType=VARCHAR},
+      update_username = #{updateUsername,jdbcType=VARCHAR},
+      ter_model = #{terModel,jdbcType=VARCHAR},
+      protocol_model = #{protocolModel,jdbcType=VARCHAR},
+      device_model_id = #{deviceModelId,jdbcType=VARCHAR},
+      equipment_model = #{equipmentModel,jdbcType=VARCHAR},
+      manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      installer_date = #{installerDate,jdbcType=TIMESTAMP},
+      eff_date = #{effDate,jdbcType=TIMESTAMP},
+      exp_date = #{expDate,jdbcType=TIMESTAMP},
+      voltage = #{voltage,jdbcType=VARCHAR},
+      te_name = #{teName,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      mac_address = #{macAddress,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      head_image = #{headImage,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      online_status = #{onlineStatus,jdbcType=INTEGER},
+      efence_id = #{efenceId,jdbcType=CHAR},
+      group_id = #{groupId,jdbcType=CHAR},
+      efence_group_id = #{efenceGroupId,jdbcType=CHAR},
+      gga_level = #{ggaLevel,jdbcType=VARCHAR},
+      card_iccid = #{cardIccid,jdbcType=VARCHAR},
+      card_no = #{cardNo,jdbcType=VARCHAR},
+      card_net_type = #{cardNetType,jdbcType=VARCHAR},
+      card_set_meal = #{cardSetMeal,jdbcType=VARCHAR},
+      software_version = #{softwareVersion,jdbcType=VARCHAR},
+      firmware_version = #{firmwareVersion,jdbcType=VARCHAR},
+      ntrip_addr = #{ntripAddr,jdbcType=VARCHAR},
+      ntrip_port = #{ntripPort,jdbcType=INTEGER},
+      ntrip_user = #{ntripUser,jdbcType=VARCHAR},
+      ntrip_password = #{ntripPassword,jdbcType=VARCHAR},
+      ntrip_mountpoint = #{ntripMountpoint,jdbcType=VARCHAR},
+      ntrip_type = #{ntripType,jdbcType=VARCHAR},
+      ntrip_expire_date = #{ntripExpireDate,jdbcType=TIMESTAMP},
+      jt808_addr = #{jt808Addr,jdbcType=VARCHAR},
+      jt808_port = #{jt808Port,jdbcType=INTEGER},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      version_id = #{versionId,jdbcType=VARCHAR},
+      install_status = #{installStatus,jdbcType=INTEGER},
+      calc_mileage = #{calcMileage,jdbcType=BIT},
+      relay_message = #{relayMessage,jdbcType=BIT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

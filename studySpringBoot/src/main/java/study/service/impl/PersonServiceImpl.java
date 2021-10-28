@@ -6,11 +6,9 @@ import study.service.PersonService;
 
 public class PersonServiceImpl implements PersonService {
 
-    @Autowired
-    private Person person;
 
     @Override
     public Person getPersonInfo() {
-        return person;
+        return null;
     }
 }
