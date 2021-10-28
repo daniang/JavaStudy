@@ -17,18 +17,18 @@ public class LoginInterceptor implements HandlerInterceptor {
      * @return
      * @throws Exception
      */
-//    @Override
-//    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//        Object loginUser = request.getSession().getAttribute("loginUser");
-//        if (loginUser == null){
-//            //未登录,返回登录页面
-//            request.getRequestDispatcher("/index.html").forward(request,response);
-//            return false;
-//        }else {
-//            //登录成功
-//            return true;
-//        }
-//    }
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        Object loginUser = request.getSession().getAttribute("loginUser");
+        if (loginUser == null){
+            //未登录,返回登录页面
+            request.getRequestDispatcher("/index.html").forward(request,response);
+            return false;
+        }else {
+            //登录成功
+            return true;
+        }
+    }
 
     /**
      * 目标方法执行后
