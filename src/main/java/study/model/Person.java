@@ -20,8 +20,6 @@ import java.util.Map;
  * 只有这个组件是容器中的组件，才能使用容器提供的@ConfigurationProperties功能；
  */
 @Component
-@PropertySource(value = "classpath:person.properties")
-@ConfigurationProperties(prefix = "person")
 public class Person {
     private String lastName;
     private Integer age;
