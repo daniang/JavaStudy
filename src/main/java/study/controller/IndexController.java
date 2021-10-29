@@ -44,7 +44,7 @@ public class IndexController {
     @PostMapping("/login")
     public String doLogin(User user, Map<String, Object> map, HttpSession session) {
         log.info("用户名{},密码{}", user.getUserName(), user.getPassWord());
-        if (user != null && StringUtils.hasText(user.getUserName()) && "123456".equals(user.getPassWord())) {
+        if (user != null && "张三".equals(user.getUserName()) && "123456".equals(user.getPassWord())) {
             session.setAttribute("loginUser", user);
             log.info("登录成功，用户名:{}", user.getUserName());
             return "redirect:/main.html";
