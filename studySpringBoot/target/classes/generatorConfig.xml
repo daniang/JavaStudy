@@ -14,9 +14,9 @@
         </commentGenerator>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://172.29.1.100:5000/bd_cloud_vehicle_dev"
-                        userId="bdc_vc_rw_dev"
-                        password="ip0agASfil6Z">
+                        connectionURL="jdbc:mysql://localhost:3306/study"
+                        userId="root"
+                        password="123456">
         </jdbcConnection>
         <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true
          时把JDBC DECIMAL 和
@@ -51,7 +51,7 @@
 
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是
       实体类名-->
-        <table tableName="inf_terminal" domainObjectName="InfTerminal"
+        <table tableName="user" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>

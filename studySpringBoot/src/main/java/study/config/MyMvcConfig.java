@@ -7,9 +7,14 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import study.interceptor.LoginInterceptor;
 
+import javax.annotation.Resource;
+
 @Configuration
 @Slf4j
 public class MyMvcConfig implements WebMvcConfigurer {
+
+    @Resource
+    private LoginInterceptor loginInterceptor;
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -22,7 +27,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         log.info("注册拦截器");
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").
+        registry.addInterceptor(loginInterceptor).addPathPatterns("/**").
                 excludePathPatterns("/", "/login", "/index.html", "/user/login", "/css/**", "/images/**", "/js/**", "fongts/**");
     }
+
+
+
 }
