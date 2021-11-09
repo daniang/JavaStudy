@@ -43,10 +43,10 @@ public class IndexController {
 
     @PostMapping("/login")
     public String doLogin(User user, Map<String, Object> map, HttpSession session) {
-        log.info("用户名{},密码{}", user.getUserName(), user.getPassWord());
-        if (user != null && "张三".equals(user.getUserName()) && "123456".equals(user.getPassWord())) {
+        log.info("用户名{},密码{}", user.getUsername(), user.getPassword());
+        if (user != null && "张三".equals(user.getUsername()) && "123456".equals(user.getPassword())) {
             session.setAttribute("loginUser", user);
-            log.info("登录成功，用户名:{}", user.getUserName());
+            log.info("登录成功，用户名:{}", user.getUsername());
             return "redirect:/main.html";
         } else {
             map.put("msg", "用户名或密码错误");
